@@ -4,7 +4,8 @@ import classes from './post-item.module.css';
 import Image from 'next/image';
 
 const PostItem = ({ post }) => {
-  const { title, image, excert, date, slug } = post;
+  const { title, image, excerpt, date, slug } = post;
+
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
@@ -25,9 +26,9 @@ const PostItem = ({ post }) => {
           />
         </div>
         <div className={classes.content}>
-          <h3>title</h3>
+          <h3>{title}</h3>
           <time>{formattedDate}</time>
-          <p>{excert}</p>
+          <p>{excerpt}</p>
         </div>
       </Link>
     </li>

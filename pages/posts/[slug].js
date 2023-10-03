@@ -1,9 +1,17 @@
 import React from 'react';
-
+import Head from 'next/head';
 import { getPostData, getPostFiles } from '../../lib/posts-util';
 import PostContent from '../../components/posts/post-detail/post-content';
 const PostDetailsPage = ({ post }) => {
-  return <PostContent post={post} />;
+  return (
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.excerpt} />
+      </Head>
+      <PostContent post={post} />;
+    </>
+  );
 };
 export const getStaticProps = (context) => {
   //get concrete slug path value
